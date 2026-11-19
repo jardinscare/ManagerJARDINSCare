@@ -1,0 +1,23 @@
+# Backups antigos
+*.bak
+*.backup
+*.old
+
+# Arquivos de sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editores de código
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+npm-debug.log*
+
+# iCloud (arquivos temporários)
+.icloud/
+*.icloud
