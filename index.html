@@ -1,0 +1,1744 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Manager JARDINSCare</title>
+    
+    <!-- ===== FAVICON ===== -->
+    <link rel="icon" type="image/png" sizes="32x32" href="https://i.ibb.co/8g9p4tcf/JARDINSCare-Logo-Folha-Transparente-I.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://i.ibb.co/8g9p4tcf/JARDINSCare-Logo-Folha-Transparente-I.png">
+    <link rel="apple-touch-icon" href="https://i.ibb.co/8g9p4tcf/JARDINSCare-Logo-Folha-Transparente-I.png">
+    <link rel="shortcut icon" href="https://i.ibb.co/8g9p4tcf/JARDINSCare-Logo-Folha-Transparente-I.png">
+    
+    <!-- ===== PWA Meta Tags ===== -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#192F00">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Manager JARDINSCare">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Manager JARDINSCare">
+    
+    <!-- ===== PWA ICONS ===== -->
+    <link rel="icon" type="image/png" sizes="24x24" href="icons/icon-24.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="icons/icon-32.png">
+    <link rel="icon" type="image/png" sizes="64x64" href="icons/icon-64.png">
+    <link rel="icon" type="image/png" sizes="72x72" href="icons/icon-72.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="icons/icon-96.png">
+    <link rel="icon" type="image/png" sizes="128x128" href="icons/icon-128.png">
+    <link rel="icon" type="image/png" sizes="144x144" href="icons/icon-144.png">
+    <link rel="icon" type="image/png" sizes="152x152" href="icons/icon-152.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+    <link rel="icon" type="image/png" sizes="384x384" href="icons/icon-384.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="icons/icon-512.png">
+    <link rel="apple-touch-icon" href="icons/icon-192.png">
+    <link rel="shortcut icon" href="icons/icon-32.png">
+    
+    <!-- ===== FONT AWESOME ===== -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- ===== GOOGLE FONTS ===== -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- ===== CHART.JS ===== -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    
+    <!-- ===== CSS ===== -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- ============================================= -->
+    <!-- APP SHELL                                      -->
+    <!-- ============================================= -->
+    <div class="app-shell">
+        
+        <!-- ============================================= -->
+        <!-- SIDEBAR                                       -->
+        <!-- ============================================= -->
+        <aside class="sidebar" id="sidebar">
+            <!-- Header / Brand -->
+            <div class="sidebar-header">
+                <div class="sidebar-brand">
+                    <img src="https://i.ibb.co/HLR2m0Bz/JARDINSCare-Logo-Fundo-Transparente.png" alt="Manager JARDINSCare">
+                    <div class="sidebar-brand-text">Manager JARDINSCare</div>
+                    <div class="sidebar-brand-version">v4.9 PWA</div>
+                </div>
+            </div>
+            
+            <!-- Menu Principal -->
+            <nav class="sidebar-nav">
+                <button class="sidebar-nav-item active" data-page="dashboard" data-tooltip="Dashboard">
+                    <span class="nav-icon">📊</span>
+                    <span class="nav-text">Dashboard</span>
+                </button>
+                <button class="sidebar-nav-item" data-page="assistidos" data-tooltip="Assistidos">
+                    <span class="nav-icon">🏥</span>
+                    <span class="nav-text">Assistidos</span>
+                </button>
+                <button class="sidebar-nav-item" data-page="leads" data-tooltip="Leads">
+                    <span class="nav-icon">⭐</span>
+                    <span class="nav-text">Leads</span>
+                </button>
+                <button class="sidebar-nav-item" data-page="metricas-comerciais" data-tooltip="Métricas Comerciais">
+                    <span class="nav-icon">📈</span>
+                    <span class="nav-text">Métricas Comerciais</span>
+                </button>
+                <button class="sidebar-nav-item" data-page="despesas" data-tooltip="Despesas">
+                    <span class="nav-icon">💰</span>
+                    <span class="nav-text">Despesas</span>
+                </button>
+                <button class="sidebar-nav-item" data-page="receitas-avulsas" data-tooltip="Receitas">
+                    <span class="nav-icon">📋</span>
+                    <span class="nav-text">Receitas</span>
+                </button>
+                <button class="sidebar-nav-item" data-page="resultados" data-tooltip="Resultados">
+                    <span class="nav-icon">📈</span>
+                    <span class="nav-text">Resultados</span>
+                </button>
+                <button class="sidebar-nav-item" data-page="fluxo-caixa" data-tooltip="Fluxo de Caixa">
+                    <span class="nav-icon">💹</span>
+                    <span class="nav-text">Fluxo de Caixa</span>
+                </button>
+                <button class="sidebar-nav-item" data-page="simulacao-cenarios" data-tooltip="Inteligência de Negócio">
+                    <span class="nav-icon">🧠</span>
+                    <span class="nav-text">Inteligência</span>
+                </button>
+            </nav>
+            
+            <!-- Footer do Sidebar (área reservada) -->
+            <div class="sidebar-footer">
+                <!-- Espaço reservado para futuras ações (logout, ajuda, etc.) -->
+            </div>
+        </aside>
+
+        <!-- ============================================= -->
+        <!-- MAIN AREA                                     -->
+        <!-- ============================================= -->
+        <div class="main-area">
+            
+            <!-- ============================================= -->
+            <!-- TOP BAR                                       -->
+            <!-- ============================================= -->
+            <header class="top-bar">
+                <button class="sidebar-toggle-btn" id="sidebarToggleBtn">☰</button>
+                <span class="top-bar-title" id="pageTitle">📊 Dashboard Gerencial</span>
+                <div class="top-bar-actions">
+                    <button class="logo-refresh-btn" id="refreshBtn" title="Atualizar Dados">
+                        <img src="https://i.ibb.co/8g9p4tcf/JARDINSCare-Logo-Folha-Transparente-I.png" alt="Refresh">
+                    </button>
+                </div>
+            </header>
+
+            <!-- ============================================= -->
+            <!-- CONTENT AREA                                  -->
+            <!-- ============================================= -->
+            <div class="content-area" id="contentArea">
+                
+                <!-- ============================================= -->
+                <!-- PÁGINA: DASHBOARD                             -->
+                <!-- ============================================= -->
+                <div class="page active" id="page-dashboard">
+                    
+                    <!-- LINHA: Alertas + Mês de Referência -->
+                    <div id="dashboardHeaderRow" style="display: grid; grid-template-columns: 1fr; gap: 16px; margin-bottom: 16px; width: 100%;">
+                        <div id="contratosAlertasContainer" style="display: none;"></div>
+                        <div class="card" id="mesReferenciaCard" style="margin-bottom: 0; width: 100%;">
+                            <div class="card-body" style="display: flex; align-items: center; gap: 12px; padding: 12px 16px;">
+                                <span style="font-weight: 600; font-size: 14px; white-space: nowrap;">📅 Mês de Referência</span>
+                                <select id="mesReferenciaSelect" class="form-select" style="flex: 1; min-width: 120px; height: 38px; font-size: 13px;">
+                                    <!-- Opções geradas via JavaScript -->
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="metasAlertasContainer"></div>
+
+                    <div class="retry-banner" id="retryBanner">
+                        <span>⚠️ Algumas requisições falharam. Clique em "Tentar novamente" para recarregar os dados.</span>
+                        <button class="btn btn-warning btn-sm" id="retryDashboardBtn">Tentar novamente</button>
+                    </div>
+
+                    <!-- 🆕 BARRA DE PROGRESSO INLINE PADRONIZADA -->
+                    <div class="progress-inline-container" id="progressBarContainer">
+<div class="progress-inline-header">
+    <div class="progress-inline-title-row">
+        <span class="progress-inline-icon">📊</span>
+        <span class="progress-inline-title" id="progressInlineTitle">Carregando Dashboard</span>
+    </div>
+    <div class="progress-inline-subtitle" id="progressInlineSubtitle">Preparando...</div>
+</div>
+                        <div class="progress-inline-steps" id="progressInlineSteps">
+                            <div class="progress-inline-step" data-step="0">
+                                <div class="progress-inline-step-icon">📡</div>
+                                <div class="progress-inline-step-label">Conectando</div>
+                            </div>
+                            <div class="progress-inline-step" data-step="1">
+                                <div class="progress-inline-step-icon">📊</div>
+                                <div class="progress-inline-step-label">Carregando</div>
+                            </div>
+                            <div class="progress-inline-step" data-step="2">
+                                <div class="progress-inline-step-icon">💰</div>
+                                <div class="progress-inline-step-label">Financeiro</div>
+                            </div>
+                            <div class="progress-inline-step" data-step="3">
+                                <div class="progress-inline-step-icon">📈</div>
+                                <div class="progress-inline-step-label">Métricas</div>
+                            </div>
+                            <div class="progress-inline-step" data-step="4">
+                                <div class="progress-inline-step-icon">🔍</div>
+                                <div class="progress-inline-step-label">Contratos</div>
+                            </div>
+                            <div class="progress-inline-step" data-step="5">
+                                <div class="progress-inline-step-icon">🎂</div>
+                                <div class="progress-inline-step-label">Aniversários</div>
+                            </div>
+                            <div class="progress-inline-step" data-step="6">
+                                <div class="progress-inline-step-icon">✅</div>
+                                <div class="progress-inline-step-label">Finalizado</div>
+                            </div>
+                        </div>
+                        <div class="progress-inline-bar">
+                            <div class="progress-inline-fill" id="progressFill"></div>
+                            <div class="progress-inline-percent" id="progressPercent">0%</div>
+                        </div>
+                    </div>
+
+                    <!-- Cards agrupados -->
+                    <div class="card" style="margin-bottom: 16px;">
+                        <div class="card-header">
+                            <span class="card-title">📊 Indicadores Gerais</span>
+                        </div>
+                        <div class="card-body" style="padding: 16px 16px 8px 16px;">
+                            <!-- Stats Row 1 (NÃO FILTRADOS) -->
+                            <div class="stats-row-5" id="dashStatsLinha1" style="margin-bottom: 8px;">
+                                <div class="stat-card">
+                                    <div class="stat-icon green">🏥</div>
+                                    <div class="stat-info">
+                                        <div class="stat-value" id="dashAssistidosAtivos">--</div>
+                                        <div class="stat-label">ASSISTIDOS ATIVOS</div>
+                                    </div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="stat-icon teal">👥</div>
+                                    <div class="stat-info">
+                                        <div class="stat-value" id="dashPersonalAtivos">--</div>
+                                        <div class="stat-label">PERSONAL CARES ATIVOS</div>
+                                    </div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="stat-icon blue">💰</div>
+                                    <div class="stat-info">
+                                        <div class="stat-value positive" id="dashFaturamentoEstimado">--</div>
+                                        <div class="stat-label">RECEITAS ESTIMADAS</div>
+                                    </div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="stat-icon red">📉</div>
+                                    <div class="stat-info">
+                                        <div class="stat-value negative" id="dashCustoDireto">--</div>
+                                        <div class="stat-label">CUSTO DIRETO ESTIMADO</div>
+                                    </div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="stat-icon purple">🎯</div>
+                                    <div class="stat-info">
+                                        <div class="stat-value" id="dashResultadoBruto">--</div>
+                                        <div class="stat-label">RESULTADO ESTIMADO</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Stats Row 2 (FILTRADOS POR MÊS) -->
+                            <div class="stats-row-5" style="margin-top: 0; margin-bottom: 8px;">
+                                <div class="stat-card">
+                                    <div class="stat-icon blue">📋</div>
+                                    <div class="stat-info">
+                                        <div class="stat-value positive" id="resumoReceitasContratos">--</div>
+                                        <div class="stat-label">RECEITAS CONTRATOS</div>
+                                    </div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="stat-icon blue">📋</div>
+                                    <div class="stat-info">
+                                        <div class="stat-value positive" id="resumoReceitasAvulsas">--</div>
+                                        <div class="stat-label">RECEITAS AVULSAS</div>
+                                    </div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="stat-icon red">💰</div>
+                                    <div class="stat-info">
+                                        <div class="stat-value negative" id="resumoDespesas">--</div>
+                                        <div class="stat-label">DESPESAS</div>
+                                    </div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="stat-icon purple">🎯</div>
+                                    <div class="stat-info">
+                                        <div class="stat-value" id="resumoResultadoMes">--</div>
+                                        <div class="stat-label">RESULTADO LÍQUIDO</div>
+                                    </div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="stat-icon green">⭐</div>
+                                    <div class="stat-info">
+                                        <div class="stat-value lead" id="dashLeadsCount">--</div>
+                                        <div class="stat-label">LEADS</div>
+                                    </div>
+                                </div>
+                                <!-- 🔥 FASE 3: Card Leads com Alta Probabilidade -->
+                                <div class="stat-card">
+                                    <div class="stat-icon amber">🔥</div>
+                                    <div class="stat-info">
+                                        <div class="stat-value" style="font-size: 16px; margin-bottom: 2px;" id="dashLeadsAltaProbabilidadeCount">0</div>
+                                        <div class="stat-label" style="margin-bottom: 2px;">LEADS QUENTES</div>
+                                        <div id="dashLeadsAltaProbabilidade" style="margin-top: 0px; font-size: 12px; color: var(--gray-500); text-align: left;"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Metas -->
+                            <div class="stats-row-5" id="metasRow" style="margin-bottom: 0; display: flex; flex-wrap: wrap; gap: 16px;">
+                                <div class="meta-card" id="metaFaturamentoCard">
+                                    <div class="stat-icon blue">🎯</div>
+                                    <div class="stat-info">
+                                        <div class="stat-value" id="metaFaturamentoValor">--</div>
+                                        <div class="stat-label">META FATURAMENTO</div>
+                                        <div class="meta-progress-container">
+                                            <div class="meta-progress-bar"><div class="meta-progress-fill" id="metaFaturamentoProgress"></div></div>
+                                            <div class="meta-achieved" id="metaFaturamentoStatus">--</div>
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-sm btn-secondary" onclick="managerApp.abrirModalConfigurarMetas()" style="position: absolute; top: 12px; right: 12px;">⚙️</button>
+                                </div>
+                                <div class="meta-card" id="metaMargemCard">
+                                    <div class="stat-icon purple">📊</div>
+                                    <div class="stat-info">
+                                        <div class="stat-value" id="metaMargemValor">--</div>
+                                        <div class="stat-label">META MARGEM</div>
+                                        <div class="meta-progress-container">
+                                            <div class="meta-progress-bar"><div class="meta-progress-fill" id="metaMargemProgress"></div></div>
+                                            <div class="meta-achieved" id="metaMargemStatus">--</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="meta-card" id="metaLeadsCard">
+                                    <div class="stat-icon green">⭐</div>
+                                    <div class="stat-info">
+                                        <div class="stat-value" id="metaLeadsValor">--</div>
+                                        <div class="stat-label">META LEADS (MÊS)</div>
+                                        <div class="meta-progress-container">
+                                            <div class="meta-progress-bar"><div class="meta-progress-fill" id="metaLeadsProgress"></div></div>
+                                            <div class="meta-achieved" id="metaLeadsStatus">--</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- META CONVERSÃO -->
+                                <div class="meta-card" id="metaConversaoCard">
+                                    <div class="stat-icon amber">📈</div>
+                                    <div class="stat-info">
+                                        <div class="stat-value" id="metaConversaoValor">--</div>
+                                        <div class="stat-label">META CONVERSÃO</div>
+                                        <div class="meta-progress-container">
+                                            <div class="meta-progress-bar">
+                                                <div class="meta-progress-fill" id="metaConversaoProgress" style="width: 0%;"></div>
+                                            </div>
+                                            <div class="meta-achieved" id="metaConversaoStatus">Carregando dados...</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Gráficos agrupados -->
+                    <div class="card" style="margin-bottom: 0;">
+                        <div class="card-header">
+                            <span class="card-title">📈 Análise Gráfica</span>
+                        </div>
+                        <div class="card-body" style="padding: 16px;">
+                            <div class="stats-row-3" style="margin-bottom: 0;">
+                                <div class="chart-card" style="margin-bottom: 0;">
+                                    <div class="chart-header">
+                                        <h3>📈 RECEITAS x DESPESAS</h3>
+                                    </div>
+                                    <div class="chart-body">
+                                        <div class="chart-canvas-wrapper">
+                                            <canvas id="chartEvolucao" width="400" height="280"></canvas>
+                                        </div>
+                                        <div class="chart-legend">
+                                            <div class="chart-legend-item"><div class="chart-legend-color" style="background: #0d9488;"></div><span>Receitas Totais</span></div>
+                                            <div class="chart-legend-item"><div class="chart-legend-color" style="background: #ef4444;"></div><span>Despesas Totais</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="chart-card" style="margin-bottom: 0;">
+                                    <div class="chart-header">
+                                        <h3>🥧 TOP DESPESAS</h3>
+                                    </div>
+                                    <div class="chart-body">
+                                        <div class="chart-canvas-wrapper">
+                                            <canvas id="chartPizzaCategorias" width="400" height="280"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="chart-card" style="margin-bottom: 0;">
+                                    <div class="chart-header">
+                                        <h3>📊 % MARGEM LÍQUIDA</h3>
+                                    </div>
+                                    <div class="chart-body">
+                                        <div class="chart-canvas-wrapper">
+                                            <canvas id="chartMargem" width="400" height="280"></canvas>
+                                        </div>
+                                        <div class="chart-legend">
+                                            <div class="chart-legend-item"><div class="chart-legend-color" style="background: #10b981;"></div><span>Margem Líquida</span></div>
+                                            <div class="chart-legend-item"><div class="chart-legend-color" style="background: #f59e0b; border: 1px dashed;"></div><span>Meta (20%)</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="chart-card" style="margin-bottom: 0;">
+                                    <div class="chart-header">
+                                        <h3>📈 EVOLUÇÃO DO FATURAMENTO</h3>
+                                    </div>
+                                    <div class="chart-body">
+                                        <div class="chart-canvas-wrapper">
+                                            <canvas id="chartEvolucaoFaturamento" width="400" height="280"></canvas>
+                                        </div>
+                                        <div class="chart-legend">
+                                            <div class="chart-legend-item"><div class="chart-legend-color" style="background: #0d9488;"></div><span>Faturamento Mensal</span></div>
+                                            <div class="chart-legend-item"><div class="chart-legend-color" style="background: #f59e0b; border: 1px dashed;"></div><span>Meta</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ============================================= -->
+                <!-- PÁGINA: ASSISTIDOS                             -->
+                <!-- ============================================= -->
+                <div class="page" id="page-assistidos">
+                    <div class="card">
+                        <div class="card-header">
+                            <span class="card-title">🏥 Gerenciar Assistidos</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="actions-row">
+                                <div class="select-group">
+                                    <label>Selecionar Assistido</label>
+                                    <select class="form-select" id="selectAssistido" onchange="managerApp.carregarDadosAssistido()">
+                                        <option value="">Selecione um assistido...</option>
+                                    </select>
+                                </div>
+                                <div class="action-btn-group">
+                                    <button class="btn btn-success" id="btnSalvarAssistido" style="width:100%;">💾 Salvar</button>
+                                </div>
+                                <div class="action-btn-group">
+                                    <button class="btn btn-secondary" id="btnCancelarAssistido" style="width:100%;">↩️ Cancelar</button>
+                                </div>
+                                <div class="action-btn-group">
+                                    <button class="btn btn-secondary" id="btnImportarQuestionario" style="width:100%;">📋 Importar</button>
+                                </div>
+                                <div class="action-btn-group" id="btnExcluirContainer" style="display:none;">
+                                    <button class="btn btn-danger" id="btnExcluirAssistido" style="width:100%;">🗑️ Excluir</button>
+                                </div>
+                                <div class="action-btn-group">
+                                    <button class="btn btn-whatsapp" id="btnWhatsAppAssistido" style="width:100%;" disabled>📱 WhatsApp</button>
+                                </div>
+                            </div>
+
+                            <!-- Tabs -->
+                            <div class="tabs-inline" style="margin-top:20px;">
+                                <button class="tab-inline active" data-tab="dados">📋 Dados Gerais</button>
+                                <button class="tab-inline" data-tab="contrato">📅 Contrato</button>
+                                <button class="tab-inline" data-tab="padroes">⚙️ Padrões e Saúde</button>
+                            </div>
+
+                            <!-- ABA DADOS GERAIS -->
+                            <div id="tabDados" class="tab-pane active" style="margin-top:20px;">
+                                <div class="card" style="background: var(--primary-50); border: 1px solid var(--primary-100); margin-bottom:0;">
+                                    <div class="card-body">
+                                        <!-- LINHA 1: NOME | DATA NASC | SEXO | FAIXA ETÁRIA | PESO | ALTURA -->
+                                        <div class="form-row" style="display: flex; flex-wrap: nowrap; gap: 0; justify-content: space-between;">
+                                            <div class="form-group" style="flex: 0 0 33.25%; min-width: 0; max-width: 100%; box-sizing: border-box; padding-left: 0; padding-right: 6px;">
+                                                <label>NOME <span class="required-asterisk">*</span></label>
+                                                <input class="form-input" id="campoNome" placeholder="Nome completo" style="width: 100%; max-width: 100%; box-sizing: border-box;">
+                                            </div>
+                                            <div class="form-group" style="flex: 0 0 16.69%; min-width: 0; max-width: 100%; box-sizing: border-box; padding-left: 6px; padding-right: 6px;">
+                                                <label>DATA NASCIMENTO <span class="required-asterisk">*</span></label>
+                                                <input class="form-input input-date" id="campoDataNasc" placeholder="dd/mm/aaaa" style="width: 100%; max-width: 100%; box-sizing: border-box;">
+                                            </div>
+                                            <div class="form-group" style="flex: 0 0 13.91%; min-width: 0; max-width: 100%; box-sizing: border-box; padding-left: 6px; padding-right: 6px;">
+                                                <label>SEXO</label>
+                                                <select class="form-select" id="campoSexo" style="width: 100%; max-width: 100%; box-sizing: border-box;">
+                                                    <option value="">Selecione</option>
+                                                    <option value="Masculino">Masculino</option>
+                                                    <option value="Feminino">Feminino</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group" style="flex: 0 0 13.91%; min-width: 0; max-width: 100%; box-sizing: border-box; padding-left: 6px; padding-right: 6px;">
+                                                <label>FAIXA ETÁRIA</label>
+                                                <select class="form-select" id="campoFaixaEtaria" style="width: 100%; max-width: 100%; box-sizing: border-box;">
+                                                    <option value="">Selecione</option>
+                                                    <option value="RN">RN</option>
+                                                    <option value="Bebê">Bebê</option>
+                                                    <option value="Criança">Criança</option>
+                                                    <option value="Jovem">Jovem</option>
+                                                    <option value="Adolescente">Adolescente</option>
+                                                    <option value="Adulto">Adulto</option>
+                                                    <option value="Idoso">Idoso</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group" style="flex: 0 0 11.12%; min-width: 0; max-width: 100%; box-sizing: border-box; padding-left: 6px; padding-right: 6px;">
+                                                <label>PESO (KG)</label>
+                                                <input class="form-input" id="campoPeso" placeholder="Ex: 70" style="width: 100%; max-width: 100%; box-sizing: border-box;">
+                                            </div>
+                                            <div class="form-group" style="flex: 0 0 11.12%; min-width: 0; max-width: 100%; box-sizing: border-box; padding-left: 6px; padding-right: 0;">
+                                                <label>ALTURA (CM)</label>
+                                                <input class="form-input" id="campoAltura" placeholder="Ex: 165" style="width: 100%; max-width: 100%; box-sizing: border-box;">
+                                            </div>
+                                        </div>
+                                        <!-- LINHA 2: ENDEREÇO | FAMILIARES | MÉDICOS -->
+                                        <div class="form-row">
+                                            <div class="form-group">
+                                                <label>ENDEREÇO <span class="required-asterisk">*</span></label>
+                                                <textarea class="form-textarea" id="campoDadosAnag" rows="2" placeholder="Endereço completo, referências..."></textarea>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>FAMILIARES RESPONSÁVEIS <span class="required-asterisk">*</span></label>
+                                                <textarea class="form-textarea" id="campoResponsaveis" rows="2" placeholder="Nome, telefone, parentesco..."></textarea>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>MÉDICOS RESPONSÁVEIS</label>
+                                                <textarea class="form-textarea" id="campoMedicos" rows="2" placeholder="Nome, especialidade, contato..."></textarea>
+                                            </div>
+                                        </div>
+
+                                        <!-- LINHA 3: GPS | REGIÃO | DATA CADASTRO | STATUS -->
+                                        <div class="form-row">
+                                            <div class="form-group" style="flex:3;">
+                                                <label>GPS LOCALIZADOR</label>
+                                                <input class="form-input" id="campoGps" placeholder="Coordenadas ou endereço">
+                                            </div>
+<div class="form-group" style="flex:2;">
+    <label>REGIÃO</label>
+    <input class="form-input" id="campoRegiao" placeholder="Região">
+</div>
+                                            <div class="form-group" style="flex:2;">
+                                                <label>DATA CADASTRO</label>
+                                                <input class="form-input input-date" id="campoDataCriacao" placeholder="dd/mm/aaaa">
+                                            </div>
+                                            <div class="form-group" style="flex:2;">
+                                                <label>STATUS <span class="required-asterisk">*</span></label>
+                                                <select class="form-select" id="campoStatus">
+                                                    <option value="">Selecione</option>
+                                                    <option>Ativo</option>
+                                                    <option>Inativo</option>
+                                                    <option>Suspenso</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- ABA CONTRATO -->
+                            <div id="tabContrato" class="tab-pane" style="display:none; margin-top:20px;">
+                                <div class="card" style="background: var(--primary-50); border: 1px solid var(--primary-100); margin-bottom:0;">
+                                    <div class="card-body">
+                                        <div class="form-row">
+                                            <div class="form-group">
+                                                <label>INÍCIO CONTRATO <span class="required-asterisk">*</span></label>
+                                                <input class="form-input input-date" id="campoInicioContrato" placeholder="dd/mm/aaaa">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>VENCIMENTO CONTRATO <span class="required-asterisk">*</span></label>
+                                                <input class="form-input input-date" id="campoVctoContrato" placeholder="dd/mm/aaaa">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>PERÍODO CONTRATADO <span class="required-asterisk">*</span></label>
+                                                <select class="form-select" id="campoPeriodo">
+                                                    <option value="">Selecione</option>
+                                                    <option>Diurno</option>
+                                                    <option>Noturno</option>
+                                                    <option>Diurno e Noturno</option>
+                                                    <option>24 Horas</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>TIPO CONTRATO <span class="required-asterisk">*</span></label>
+                                                <select class="form-select" id="campoTipoContrato">
+                                                    <option value="">Selecione</option>
+                                                    <option>MENSAL</option>
+                                                    <option>AVULSO</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="form-group">
+                                                <label>PLANTÃO <span class="required-asterisk">*</span></label>
+                                                <select class="form-select" id="campoPlantao">
+                                                    <option value="">Selecione</option>
+                                                    <option>6 Horas</option>
+                                                    <option>8 Horas</option>
+                                                    <option>12 Horas</option>
+                                                    <option>24 Horas</option>
+                                                    <option>Especial</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>DIÁRIAS MÊS <span class="required-asterisk">*</span></label>
+                                                <input class="form-input" id="campoDiariasMes" placeholder="Total de horas mensais">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>VALOR PLANTÃO <span class="required-asterisk">*</span></label>
+                                                <input class="form-input input-currency" id="campoVlrPlantao" placeholder="0,00">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>VALOR CONTRATO (R$)</label>
+                                                <input class="form-input input-currency" id="campoVlrContrato" placeholder="0,00">
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="form-group">
+                                                <label>HORA ENTRADA <span class="required-asterisk">*</span></label>
+                                                <select class="form-select" id="campoHoraEntrada"></select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>HORA SAÍDA <span class="required-asterisk">*</span></label>
+                                                <select class="form-select" id="campoHoraSaida"></select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>DIA VENCIMENTO <span class="required-asterisk">*</span></label>
+                                                <input class="form-input" id="campoDiaVencimento" type="number" min="1" max="31" placeholder="Ex: 15">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>⭐ SATISFAÇÃO (0-100)</label>
+                                                <input class="form-input" id="campoScoreSatisfacao" type="number" min="0" max="100" placeholder="0-100">
+                                            </div>
+                                        </div>
+                                        <div class="form-group" style="margin-bottom:16px;">
+                                            <label>DIAS DA SEMANA (habilitados para escala)</label>
+                                            <div class="dias-semana-container" id="diasSemanaContainer">
+                                                <div class="dia-semana-item" data-dia="Segunda">Seg</div>
+                                                <div class="dia-semana-item" data-dia="Terça">Ter</div>
+                                                <div class="dia-semana-item" data-dia="Quarta">Qua</div>
+                                                <div class="dia-semana-item" data-dia="Quinta">Qui</div>
+                                                <div class="dia-semana-item" data-dia="Sexta">Sex</div>
+                                                <div class="dia-semana-item" data-dia="Sábado">Sáb</div>
+                                                <div class="dia-semana-item" data-dia="Domingo">Dom</div>
+                                            </div>
+                                        </div>
+                                        <div class="form-row" style="margin-top:0;">
+                                            <div class="form-group" style="flex:1;">
+                                                <label>RENOVATIOMED</label>
+                                                <select class="form-select" id="campoDispMED">
+                                                    <option value="">Selecione</option>
+                                                    <option>Entregue</option>
+                                                    <option>NÃO Entregue</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group" style="flex:1;">
+                                                <label>VISITA ENFERMEIRA</label>
+                                                <input class="form-input input-date" id="campoVisitaENF" placeholder="dd/mm/aaaa">
+                                            </div>
+                                            <div class="form-group" style="flex:1;">
+                                                <label>VISITA DIRETOR</label>
+                                                <input class="form-input input-date" id="campoVisitaDIR" placeholder="dd/mm/aaaa">
+                                            </div>
+                                            <div class="form-group" style="flex:1;">
+                                                <label>REGISTRAR PRONTUÁRIO</label>
+                                                <select class="form-select" id="campoRegistrarProntuario">
+                                                    <option value="Obrigatório" selected>Obrigatório</option>
+                                                    <option value="Não Obrigatório">Não Obrigatório</option>
+                                                </select>
+                                            </div>
+											<div class="form-group" style="flex:1;">
+												<label>PATRONO</label>
+												<select class="form-select" id="campoPatrono">
+													<option value="">Selecione</option>
+													<option value="JARDINS Prime Care">JARDINS Prime Care</option>
+													<option value="PIÙ VITA">PIÙ VITA</option>
+													<option value="Centro Dia PV">Centro Dia PV</option>
+												</select>
+											</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- ABA PADRÕES E SAÚDE -->
+                            <div id="tabPadroes" class="tab-pane" style="display:none; margin-top:20px;">
+                                <div class="card" style="background: var(--primary-50); border: 1px solid var(--primary-100); margin-bottom:0;">
+                                    <div class="card-header" style="background: var(--primary-50);">
+                                        <span class="card-title">📋 Instruções para os Cuidadores e Informações de Saúde</span>
+                                    </div>
+                                    <div class="card-body">
+                                        <!-- LINHA 1: EMERGÊNCIA SOCORRO | EMERGÊNCIA FAMILIAR | GRUPO WHATSAPP -->
+                                        <div class="form-row">
+                                            <div class="form-group" style="flex:1;">
+                                                <label>EMERGÊNCIA (SOCORRO)</label>
+                                                <input class="form-input" id="campoContatoMedico" placeholder="Telefone - SAMU/192">
+                                            </div>
+                                            <div class="form-group" style="flex:1;">
+                                                <label>EMERGÊNCIA (FAMILIAR)</label>
+                                                <input class="form-input" id="campoContatoFamilia" placeholder="Telefone - Familiar">
+                                            </div>
+                                            <div class="form-group" style="flex:2;">
+                                                <label>GRUPO WHATS APP (LINK)</label>
+                                                <input class="form-input" id="campoLinkGrupoWhatsApp" placeholder="https://chat.whatsapp.com/...">
+                                            </div>
+                                        </div>
+
+                                        <!-- LINHA 2: PRESSÃO ARTERIAL | GLICEMIA | PATOLOGIAS (select) | PERSONAL CARES (NÃO ENVIAR) (select) -->
+                                        <div class="form-row">
+                                            <div class="form-group" style="flex:1;">
+                                                <label>🩸 PRESSÃO ARTERIAL (REFERÊNCIA)</label>
+                                                <input class="form-input" id="campoPressaoPadrao" placeholder="Ex: 120/80">
+                                            </div>
+                                            <div class="form-group" style="flex:1;">
+                                                <label>🩸 GLICEMIA (REFERÊNCIA)</label>
+                                                <input class="form-input" id="campoGlicemiaPadrao" placeholder="Ex: 90-130 mg/dL">
+                                            </div>
+<div class="form-group" style="flex:1;">
+    <label>🏥 PATOLOGIAS</label>
+    <select class="form-select" id="selectPatologia" style="width:100%;">
+        <option value="">Selecione uma patologia...</option>
+
+        <optgroup label="Mobilidade, Pele e Suportes Físicos">
+            <option value="Acamado">Acamado</option>
+            <option value="Cadeirante">Cadeirante</option>
+            <option value="Mobilidade Reduzida">Mobilidade Reduzida</option>
+            <option value="Feridas">Feridas</option>
+            <option value="Lesão por Pressão">Lesão por Pressão</option>
+        </optgroup>
+
+        <optgroup label="Condições Clínicas Crônicas">
+            <option value="Diabetes">Diabetes</option>
+            <option value="Hipertensão (HAS)">Hipertensão (HAS)</option>
+            <option value="AVC">AVC</option>
+            <option value="Cardiopatia">Cardiopatia</option>
+            <option value="Doença Renal Crônica">Doença Renal Crônica</option>
+            <option value="Doença Respiratória Crônica">Doença Respiratória Crônica</option>
+            <option value="Demência">Demência</option>
+            <option value="Alzheimer">Alzheimer</option>
+            <option value="Parkinson">Parkinson</option>
+            <option value="Esclerose Múltipla">Esclerose Múltipla</option>
+        </optgroup>
+
+        <optgroup label="Dispositivos e Suportes">
+            <option value="Bolsa de Colostomia">Bolsa de Colostomia</option>
+            <option value="Gastrostomia (GTT)">Gastrostomia (GTT)</option>
+            <option value="Sonda Nasogástrica / Nasoenteral">Sonda Nasogástrica / Nasoenteral</option>
+            <option value="Sonda Vesical">Sonda Vesical</option>
+            <option value="Traqueostomia (TQT)">Traqueostomia (TQT)</option>
+            <option value="CPAP / Ventilação Não Invasiva">CPAP / Ventilação Não Invasiva</option>
+            <option value="Bomba de Infusão">Bomba de Infusão</option>
+            <option value="Marca-passo">Marca-passo</option>
+        </optgroup>
+
+        <optgroup label="Saúde Mental e Condições Específicas">
+            <option value="Depressão">Depressão</option>
+            <option value="Esquizofrenia">Esquizofrenia</option>
+            <option value="Transtorno de Humor">Transtorno de Humor</option>
+            <option value="Soropositivo (HIV)">Soropositivo (HIV)</option>
+            <option value="Síndrome de Down">Síndrome de Down</option>
+        </optgroup>
+
+        <optgroup label="Outros (sem efeito na matriz)">
+            <option value="Doença Carotídea">Doença Carotídea</option>
+            <option value="TEP (Tromboembolia Pulmonar)">TEP (Tromboembolia Pulmonar)</option>
+            <option value="Dislipidemia">Dislipidemia</option>
+            <option value="Anemia">Anemia</option>
+            <option value="Osteopenia">Osteopenia</option>
+            <option value="Tabagismo">Tabagismo</option>
+        </optgroup>
+    </select>
+</div>
+                                            <div class="form-group" style="flex:1;">
+                                                <label>🚫 PERSONAL CARES (NÃO ENVIAR)</label>
+                                                <select class="form-select" id="selectPcNaoEnviar" style="width:100%;">
+                                                    <option value="">Selecione um Personal Care...</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <!-- LINHA 3: ALIMENTAÇÃO | PATOLOGIAS E NECESSIDADES | PERSONAL CARES DESAPROVADOS -->
+                                        <div class="form-row">
+                                            <div class="form-group" style="flex: 2;">
+                                                <label>🍽️ ALIMENTAÇÃO / DIETA</label>
+                                                <textarea class="form-textarea" id="campoAlimentacaoPadrao" rows="3" placeholder="Ex: Dieta pastosa, sem glúten, evitar açúcar..."></textarea>
+                                            </div>
+                                            <div class="form-group" style="flex: 1;">
+                                                <label>🏥 PATOLOGIAS E NECESSIDADES ESPECIAIS</label>
+                                                <textarea class="form-textarea" id="campoPatologiasNecessidades" rows="3" placeholder="Patologias e necessidades especiais do assistido..."></textarea>
+                                            </div>
+                                            <div class="form-group" style="flex: 1;">
+                                                <label>🚫 PERSONAL CARES DESAPROVADOS</label>
+                                                <textarea class="form-textarea" id="campoPcDesaprovados" rows="3" placeholder="Personal Cares desaprovados..." style="background: var(--gray-100);" readonly></textarea>
+                                            </div>
+                                        </div>
+
+                                        <!-- LINHA 4: OBSERVAÇÕES INTERNAS | ATIVIDADES DO ASSISTIDO | MOTIVO DESLIGAMENTO -->
+                                        <div class="form-row">
+                                            <div class="form-group" style="flex: 2;">
+                                                <label>📝 OBSERVAÇÕES INTERNAS DA GESTÃO</label>
+                                                <textarea class="form-textarea" id="campoObservacoesInternas" rows="4" 
+                                                    placeholder="Decisões internas, alertas, negociações, histórico de gestão...&#10;Ex: Cliente insatisfeito com cuidador X - agendar reunião&#10;Negociação de reajuste pendente desde [data]"></textarea>
+                                                <small class="field-hint">🔒 Visível apenas para a gestão - NÃO aparece no compartilhamento familiar</small>
+                                            </div>
+                                            <div class="form-group" style="flex: 1;">
+                                                <label>🏃 ATIVIDADES DO ASSISTIDO</label>
+                                                <textarea class="form-textarea" id="campoAtividadesAssistidoPadrao" rows="4" placeholder="Ex: Fisioterapia às 10h, Caminhada às 16h..."></textarea>
+                                            </div>
+                                            <div class="form-group" style="flex: 1;">
+                                                <label>📌 MOTIVO DE DESLIGAMENTO</label>
+                                                <select class="form-select" id="campoMotivoDesligamento">
+                                                    <option value="">Selecione um motivo...</option>
+                                                    <option value="Familiar optou por cuidar em casa">Familiar optou por cuidar em casa</option>
+                                                    <option value="Insatisfação com o serviço">Insatisfação com o serviço</option>
+                                                    <option value="Insatisfação com cuidador(a)">Insatisfação com cuidador(a)</option>
+                                                    <option value="Transferência para outra cidade">Transferência para outra cidade</option>
+                                                    <option value="Óbito">Óbito</option>
+                                                    <option value="Concorrência ofereceu preço menor">Concorrência ofereceu preço menor</option>
+                                                    <option value="Alta médica / Não necessita mais">Alta médica / Não necessita mais</option>
+                                                    <option value="Problemas financeiros">Problemas financeiros</option>
+                                                    <option value="Outros">Outros (especificar)</option>
+                                                </select>
+                                                <div id="campoOutroMotivoContainer" style="display:none; margin-top:8px;">
+                                                    <input class="form-input" id="campoOutroMotivo" placeholder="Especifique o motivo...">
+                                                </div>
+                                                <small class="field-hint">📊 Para análise de churn - preencher quando status = Inativo</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ============================================= -->
+                <!-- PÁGINA: LEADS                                 -->
+                <!-- ============================================= -->
+                <div class="page" id="page-leads">
+<div style="display: flex; gap: 16px; align-items: stretch; flex-wrap: wrap; margin-bottom: 16px;">
+    <div class="card" style="flex: 4; min-width: 60%; margin-bottom: 0;">
+        <div class="card-body" style="display: flex; align-items: center; gap: 12px; padding: 12px 16px; height: 100%;">
+            <span style="font-weight: 600; font-size: 14px; white-space: nowrap;">📅 Mês de Referência</span>
+            <select id="mesReferenciaLeads" class="form-select" style="flex: 1; min-width: 120px; height: 38px; font-size: 13px;">
+                <!-- Opções geradas via JavaScript -->
+            </select>
+        </div>
+    </div>
+    <div style="flex: 1; min-width: 120px; display: flex; align-items: stretch;">
+        <button class="btn btn-primary" id="btnNovoLeadHeader" style="width: 100%; height: 100%; font-size: 15px; font-weight: 700; white-space: nowrap; border-radius: 12px; display: flex; align-items: center; justify-content: center; padding: 0 12px;">+ Novo Lead</button>
+    </div>
+</div>
+
+                    <div id="leadsGridSecundarioContainer" style="margin-bottom: 20px; display: none;"></div>
+                    <div class="stats-row-5" id="leadsResumoMensal" style="margin-bottom: 20px;"></div>
+                    <div id="leadsRecomendacoesContainer" style="margin-bottom: 20px;"></div>
+                    <div id="leadsGraficoEvolucaoContainer" style="margin-bottom: 20px;"></div>
+                    <div id="leadsNotificacoesContainer" style="margin-bottom: 20px;"></div>
+                    <div id="leadsFunilDetalhadoContainer" style="margin-bottom: 20px;"></div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <span class="card-title">⭐ Gestão de Leads</span>
+                        </div>
+                        <div class="card-body">
+                            <!-- Gráficos agrupados -->
+                            <div class="card" style="margin-bottom: 20px;">
+                                <div class="card-header">
+                                    <span class="card-title">📊 Análise de Leads</span>
+                                </div>
+                                <div class="card-body" style="padding: 16px;">
+                                    <div class="stats-row-3" style="margin-bottom: 0;">
+                                        <div class="chart-card" style="flex: 3; min-width: 280px; margin-bottom: 0;">
+                                            <div class="chart-header">
+                                                <span class="card-title">📊 Funil de Vendas - Pipeline</span>
+                                            </div>
+                                            <div class="chart-body">
+                                                <div class="chart-canvas-wrapper" style="height: 300px;">
+                                                    <canvas id="chartFunilVendas" width="400" height="280"></canvas>
+                                                </div>
+                                                <div id="funilEstatisticas"></div>
+                                            </div>
+                                        </div>
+                                        <div class="chart-card" style="flex: 2; min-width: 240px; display: flex; flex-direction: column; margin-bottom: 0;">
+                                            <div class="chart-header">
+                                                <span class="card-title">🎯 Leads por Origem</span>
+                                            </div>
+                                            <div class="chart-body" style="flex: 1; display: flex; align-items: center; justify-content: center; padding: 10px;">
+                                                <div style="width: 100%; max-width: 300px; height: auto;">
+                                                    <canvas id="chartLeadsOrigem"></canvas>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="comercial-tabs">
+                                <button class="comercial-tab active" data-tab-conversao="tabela">📋 Lista de Leads</button>
+                                <button class="comercial-tab" data-tab-conversao="relatorio">📊 Relatório de Conversão</button>
+                            </div>
+
+                            <div id="conversaoTabelaContainer">
+                                <div id="listaLeads" class="data-table-wrapper">
+                                    <table class="data-table" id="tabelaLeads">
+                                        <thead>
+                                            <tr>
+                                                <th class="sortable" data-sort-col="nome">Nome</th>
+                                                <th class="sortable" data-sort-col="contato">Contato</th>
+                                                <th class="sortable" data-sort-col="origem">Origem</th>
+                                                <th>Região</th>
+                                                <th>Tipo Serviço</th>
+                                                <th class="sortable" data-sort-col="status">Status</th>
+                                                <th class="sortable" data-sort-col="data">Data</th>
+                                                <th class="sortable" data-sort-col="proximaAcao">Próxima Ação</th>
+                                                <th>Ações</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="empty-row">
+                                                <td colspan="9" class="empty-state">Nenhum lead cadastrado</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div style="margin-top:20px; text-align:right; font-weight:700;">
+                                    Total de leads: <span id="totalLeadsCount">0</span>
+                                </div>
+                            </div>
+
+                            <div id="conversaoRelatorioContainer" style="display: none;">
+                                <div id="relatorioConversaoContainer"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ============================================= -->
+                <!-- PÁGINA: MÉTRICAS COMERCIAIS                    -->
+                <!-- ============================================= -->
+                <div class="page" id="page-metricas-comerciais">
+                    <div class="card">
+                        <div class="card-header">
+                            <span class="card-title">📈 Dashboard de Métricas Comerciais</span>
+                        </div>
+                        <div class="card-body">
+                            <div style="display: flex; gap: 16px; align-items: center; margin-bottom: 16px;">
+                                <div class="card" style="flex: 1; margin-bottom: 0; border: 1px solid var(--gray-200);">
+                                    <div class="card-body" style="display: flex; align-items: center; gap: 12px; padding: 10px 16px;">
+                                        <span style="font-weight: 600; font-size: 13px; white-space: nowrap;">📅 Mês de Análise</span>
+                                        <select id="mesMetricasSelect" class="form-select" style="flex: 1; min-width: 120px; height: 36px; font-size: 13px;">
+                                            <!-- Opções geradas via JavaScript -->
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="metricasComerciaisContainer"></div>
+
+                            <div class="comercial-tabs" style="margin-top: 20px;">
+                                <button class="comercial-tab active" data-tab-metrica="evolucao">📅 Evolução Mensal</button>
+                                <button class="comercial-tab" data-tab-metrica="origem">📊 Por Origem</button>
+                                <button class="comercial-tab" data-tab-metrica="responsavel">👥 Por Responsável</button>
+                                <button class="comercial-tab" data-tab-metrica="guru">🧠 Guru</button>
+                            </div>
+
+                            <div id="metricasEvolucaoContainer"></div>
+							<div id="metricasOrigemContainer" style="display: none;"></div>
+							<div id="metricasAnalisePerdaContainer" style="display: none;"></div>
+							<div id="metricasResponsavelContainer" style="display: none;"></div>
+                            <div id="metricasGuruContainer" style="display: none;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ============================================= -->
+                <!-- PÁGINA: DESPESAS                              -->
+                <!-- ============================================= -->
+                <div class="page" id="page-despesas">
+                    <div class="card">
+                        <div class="card-header">
+                            <span class="card-title">💰 Controle de Despesas</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="despesas-filters-row">
+                                <div class="filter-group">
+                                    <label>MÊS</label>
+                                    <input type="month" class="form-input" id="filtroMesDespesa" style="height: 42px;">
+                                </div>
+                                <div class="filter-group">
+                                    <label>CATEGORIA</label>
+                                    <select class="form-select" id="filtroCategoriaDespesa" style="height: 42px;">
+                                        <option value="">Todas</option>
+                                    </select>
+                                </div>
+                                <div class="filter-group">
+                                    <label>FORMA PAGTO.</label>
+                                    <select class="form-select" id="filtroFormaPagamentoDespesa" style="height: 42px;">
+                                        <option value="">Todas</option>
+                                    </select>
+                                </div>
+								<div class="filter-group">
+									<label>STATUS</label>
+									<select class="form-select" id="filtroStatusDespesa" style="height: 42px;">
+										<option value="">Todos</option>
+										<option value="Pendente" selected>Pendente</option>
+										<option value="Pago">Pago</option>
+										<option value="Cancelado">Cancelado</option>
+									</select>
+								</div> 
+                                <div class="btn-group">
+                                    <button class="btn btn-secondary" id="btnFiltrarDespesa" style="height: 42px;">🔍 Filtrar</button>
+                                </div>
+                                <div class="btn-group">
+                                    <button class="btn btn-primary" id="btnNovaDespesa" style="height: 42px;">+ Nova Despesa</button>
+                                </div>
+                            </div>
+
+                            <div id="listaDespesas" style="margin-top: 20px;">
+                                <div class="data-table-wrapper">
+                                    <table class="data-table" id="tabelaDespesas">
+                                        <thead>
+                                            <tr>
+                                                <th class="sortable" data-sort-col="data">Data</th>
+                                                <th class="sortable" data-sort-col="descricao">Descrição</th>
+                                                <th class="sortable" data-sort-col="fornecedor">Fornecedor</th>
+                                                <th class="sortable" data-sort-col="categoria">Categoria</th>
+                                                <th>Forma Pagto.</th>
+                                                <th class="text-right">Valor</th>
+                                                <th class="sortable" data-sort-col="status">Status</th>
+                                                <th>Ações</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="empty-row">
+                                                <td colspan="8" class="empty-state">Nenhuma despesa cadastrada</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div style="margin-top:20px; text-align:right; font-weight:700;">
+                                Total do período: <span id="totalDespesasPeriodo">R$ 0,00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ============================================= -->
+                <!-- PÁGINA: RECEITAS AVULSAS                      -->
+                <!-- ============================================= -->
+                <div class="page" id="page-receitas-avulsas">
+                    <div class="card">
+                        <div class="card-header">
+                            <span class="card-title">📋 Receitas</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="actions-row" style="margin-bottom: 20px; align-items: flex-end;">
+                                <div class="filter-group">
+                                    <label>MÊS</label>
+                                    <input type="month" class="form-input" id="filtroMesReceita">
+                                </div>
+                                <div class="filter-group">
+                                    <label>TIPO</label>
+                                    <select class="form-select" id="filtroTipoReceita">
+                                        <option value="">Todos</option>
+                                    </select>
+                                </div>
+                                <div class="filter-group">
+                                    <label>ASSISTIDO</label>
+                                    <select class="form-select" id="filtroAssistidoReceita">
+                                        <option value="">Todos</option>
+                                    </select>
+                                </div>
+								<div class="filter-group">
+									<label>STATUS</label>
+									<select class="form-select" id="filtroStatusReceita">
+										<option value="">Todos</option>
+										<option value="Recebido">Recebido</option>
+										<option value="Pendente" selected>Pendente</option>
+										<option value="Cancelado">Cancelado</option>
+									</select>
+								</div>
+                                <div class="btn-group">
+                                    <button class="btn btn-secondary" id="btnFiltrarReceita" style="height: 42px;">Filtrar</button>
+                                    <button class="btn btn-generate" id="btnGerarReceitasMensais" style="height: 42px;">⚙️ Gerar Receitas Mês</button>
+                                    <button class="btn btn-primary" id="btnNovaReceitaAvulsa" style="height: 42px;">+ Nova Receita</button>
+                                </div>
+                            </div>
+
+                            <div id="listaReceitasAvulsas">
+                                <div class="data-table-wrapper">
+                                    <table class="data-table" id="tabelaReceitas">
+                                        <thead>
+                                            <tr>
+                                                <th class="sortable" data-sort-col="data">Data</th>
+                                                <th class="sortable" data-sort-col="descricao">Descrição</th>
+                                                <th class="sortable" data-sort-col="assistido">Assistido</th>
+                                                <th class="sortable" data-sort-col="tipo">Tipo</th>
+                                                <th class="text-right">Valor</th>
+                                                <th class="sortable" data-sort-col="status">Status</th>
+                                                <th>Ações</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="empty-row">
+                                                <td colspan="7" class="empty-state">Nenhuma receita avulsa cadastrada</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div style="margin-top:20px; text-align:right; font-weight:700;">
+                                Total do período: <span id="totalReceitasPeriodo">R$ 0,00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ============================================= -->
+                <!-- PÁGINA: RESULTADOS                            -->
+                <!-- ============================================= -->
+                <div class="page" id="page-resultados">
+                    <div class="card">
+                        <div class="card-header">
+                            <span class="card-title">📈 Demonstrativo de Resultados</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="resultados-form-row" style="display: flex; gap: 12px; align-items: flex-end; flex-wrap: wrap;">
+                                <div class="form-group-month" style="flex: 4; min-width: 60%;">
+                                    <label>Mês de Referência</label>
+                                    <input type="month" class="form-input" id="resultadoMes" style="height: 42px; width: 100%;">
+                                </div>
+                                <div class="form-group-button" style="flex: 1; min-width: 100px;">
+                                    <button class="btn btn-primary" id="btnCalcularResultado" style="height: 42px; width: 100%; font-weight: 700;">Calcular</button>
+                                </div>
+                            </div>
+
+                            <div id="resultadoContent" style="margin-top:24px;">
+                                <div class="empty-state">Selecione um mês para visualizar</div>
+                            </div>
+
+                            <div id="graficoEvolucaoResultados" style="margin-top: 24px; display: none;">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <span class="card-title">📊 Evolução Mensal (Barras Empilhadas)</span>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="chart-canvas-wrapper" style="height: 320px;">
+                                            <canvas id="chartResultadosEvolucao" width="400" height="280"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ============================================= -->
+                <!-- PÁGINA: FLUXO DE CAIXA                        -->
+                <!-- ============================================= -->
+                <div class="page" id="page-fluxo-caixa">
+                    <!-- 🆕 BARRA DE PROGRESSO INLINE PADRONIZADA (FLUXO) -->
+                    <div class="progress-inline-container" id="progressBarFluxo" style="display: none;">
+<div class="progress-inline-header">
+    <div class="progress-inline-title-row">
+        <span class="progress-inline-icon">💹</span>
+        <span class="progress-inline-title" id="progressInlineTitleFluxo">Carregando Fluxo de Caixa</span>
+    </div>
+    <div class="progress-inline-subtitle" id="progressInlineSubtitleFluxo">Preparando...</div>
+</div>
+                        <div class="progress-inline-steps" id="progressInlineStepsFluxo">
+                            <div class="progress-inline-step" data-step="0">
+                                <div class="progress-inline-step-icon">📡</div>
+                                <div class="progress-inline-step-label">Conectando</div>
+                            </div>
+                            <div class="progress-inline-step" data-step="1">
+                                <div class="progress-inline-step-icon">📊</div>
+                                <div class="progress-inline-step-label">Carregando</div>
+                            </div>
+                            <div class="progress-inline-step" data-step="2">
+                                <div class="progress-inline-step-icon">📈</div>
+                                <div class="progress-inline-step-label">Projeções</div>
+                            </div>
+                            <div class="progress-inline-step" data-step="3">
+                                <div class="progress-inline-step-icon">✅</div>
+                                <div class="progress-inline-step-label">Finalizado</div>
+                            </div>
+                        </div>
+                        <div class="progress-inline-bar">
+                            <div class="progress-inline-fill" id="progressFillFluxo"></div>
+                            <div class="progress-inline-percent" id="progressPercentFluxo">0%</div>
+                        </div>
+                    </div>
+
+                    <div id="fluxoAlertaFuroContainer" style="margin-bottom: 16px;"></div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <span class="card-title">💹 Fluxo de Caixa e Previsibilidade</span>
+                            <div class="top-bar-actions" style="display: flex; gap: 8px; flex-wrap: wrap;">
+                                <button class="btn btn-secondary btn-sm" id="btnAtualizarFluxoCaixa" style="height: 32px;">🔄 Atualizar</button>
+                                <button class="btn btn-warning btn-sm" id="btnSimularCenario" style="height: 32px;">🔮 Simular Cenário</button>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="stats-row-5" id="fluxoResumoRow" style="margin-bottom: 16px;">
+                                <div class="stat-card" id="cardSaldoAtual">
+                                    <div class="stat-icon blue">💰</div>
+                                    <div class="stat-info">
+                                        <div class="stat-value" id="fluxoSaldoAtual" style="font-size: 18px; font-weight: 700;">--</div>
+                                        <div class="stat-label" style="font-size: 10px;">SALDO ATUAL</div>
+                                        <div style="font-size: 9px; color: var(--gray-500);" id="fluxoSaldoAtualDetalhe"></div>
+                                    </div>
+                                </div>
+                                <div class="stat-card" id="cardSaldoProjetado">
+                                    <div class="stat-icon purple">📊</div>
+                                    <div class="stat-info">
+                                        <div class="stat-value" id="fluxoSaldoProjetado" style="font-size: 18px; font-weight: 700;">--</div>
+                                        <div class="stat-label" style="font-size: 10px;">SALDO PROJETADO</div>
+                                        <div style="font-size: 9px; color: var(--gray-500);">3 meses</div>
+                                    </div>
+                                </div>
+                                <div class="stat-card" id="cardMargemSeguranca">
+                                    <div class="stat-icon green">🛡️</div>
+                                    <div class="stat-info">
+                                        <div class="stat-value" id="fluxoMargemSeguranca" style="font-size: 18px; font-weight: 700;">--</div>
+                                        <div class="stat-label" style="font-size: 10px;">MARGEM DE SEGURANÇA</div>
+                                        <div style="font-size: 9px; color: var(--gray-500);">Meta ideal: 20%</div>
+                                    </div>
+                                </div>
+                                <div class="stat-card" id="cardRiscoCaixa">
+                                    <div class="stat-icon red">⚠️</div>
+                                    <div class="stat-info">
+                                        <div class="stat-value" id="fluxoRiscoCaixa" style="font-size: 18px; font-weight: 700;">--</div>
+                                        <div class="stat-label" style="font-size: 10px;">RISCO DE CAIXA</div>
+                                        <div style="font-size: 9px; color: var(--gray-500);" id="fluxoRiscoCaixaDetalhe"></div>
+                                    </div>
+                                </div>
+                                <div class="stat-card" id="cardDiasCobertura">
+                                    <div class="stat-icon amber">📅</div>
+                                    <div class="stat-info">
+                                        <div class="stat-value" id="fluxoDiasCobertura" style="font-size: 18px; font-weight: 700;">--</div>
+                                        <div class="stat-label" style="font-size: 10px;">DIAS DE COBERTURA</div>
+                                        <div style="font-size: 9px; color: var(--gray-500);">Meta ideal: 30 dias</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="stats-row-5" id="fluxoLeadsRow" style="margin-bottom: 16px;">
+                                <div class="stat-card" id="cardLeadsEmNegociacao">
+                                    <div class="stat-icon amber">🔄</div>
+                                    <div class="stat-info">
+                                        <div class="stat-value" id="fluxoLeadsNegociacaoCount" style="font-size: 18px;">0</div>
+                                        <div class="stat-label" style="font-size: 10px;">LEADS EM NEGOCIAÇÃO</div>
+                                    </div>
+                                </div>
+                                <div class="stat-card" id="cardLeadsProposta">
+                                    <div class="stat-icon purple">📄</div>
+                                    <div class="stat-info">
+                                        <div class="stat-value" id="fluxoLeadsPropostaCount" style="font-size: 18px;">0</div>
+                                        <div class="stat-label" style="font-size: 10px;">LEADS COM PROPOSTA</div>
+                                    </div>
+                                </div>
+                                <div class="stat-card" id="cardLeadsValorProjetado">
+                                    <div class="stat-icon green">💰</div>
+                                    <div class="stat-info">
+                                        <div class="stat-value" id="fluxoLeadsValorProjetado" style="font-size: 18px; color: #10b981;">R$ 0,00</div>
+                                        <div class="stat-label" style="font-size: 10px;">VALOR PROJETADO DE LEADS</div>
+                                    </div>
+                                </div>
+                                <div class="stat-card" id="cardLeadsPotencial">
+                                    <div class="stat-icon blue">📈</div>
+                                    <div class="stat-info">
+                                        <div class="stat-value" id="fluxoLeadsPotencialTotal" style="font-size: 18px; color: #2563eb;">R$ 0,00</div>
+                                        <div class="stat-label" style="font-size: 10px;">POTENCIAL TOTAL (100%)</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card" style="margin-bottom: 20px; background: #f0fdfa; border: 1px solid #0d9488;">
+                                <div class="card-body" style="display: flex; align-items: center; gap: 16px; padding: 12px 16px;">
+                                    <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; font-weight: 600; font-size: 14px;">
+                                        <input type="checkbox" id="incluirLeadsProjecao" style="width: 18px; height: 18px; accent-color: #0d9488; cursor: pointer;">
+                                        📊 Incluir leads na projeção de fluxo de caixa
+                                    </label>
+                                    <span style="font-size: 12px; color: var(--gray-500);">
+                                        (Considera leads em negociação com 70% e propostas com 50% de conversão)
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div id="fluxoLeadsListaContainer" style="display: none; margin-bottom: 20px;">
+                                <div class="card" style="border-left: 4px solid #8b5cf6;">
+                                    <div class="card-header" style="background: #f5f3ff;">
+                                        <span class="card-title">📋 Leads Considerados na Projeção</span>
+                                        <span id="fluxoLeadsListaCount" style="font-size: 12px; color: var(--gray-500);">0 leads</span>
+                                    </div>
+                                    <div class="card-body" style="padding: 12px 16px; max-height: 200px; overflow-y: auto;">
+                                        <div id="fluxoLeadsListaConteudo">
+                                            <div class="empty-state" style="padding: 20px;">Nenhum lead em negociação ativa</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+<div class="card" style="margin-bottom: 20px; background: var(--gray-50); border: 1px solid var(--gray-200);">
+    <div class="card-body" style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 12px 16px; flex-wrap: wrap;">
+        <div style="font-weight: 600; font-size: 14px;">📅 Visão da Projeção</div>
+        <div style="display: flex; gap: 8px;">
+            <button class="btn btn-sm btn-primary" id="btnVisaoMensal" style="height: 34px; padding: 0 20px;">📊 Mensal (Consolidada)</button>
+            <button class="btn btn-sm btn-secondary" id="btnVisaoSemanal" style="height: 34px; padding: 0 20px;">📅 Semanal (Detalhada)</button>
+            <button class="btn btn-sm btn-secondary" id="btnVisaoDiaria" style="height: 34px; padding: 0 20px;">📅 Diário (90 dias)</button>
+        </div>
+    </div>
+</div>
+
+                            <div id="fluxoVisaoMensal">
+                                <div class="chart-card" style="margin-bottom: 20px;">
+                                    <div class="chart-header" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+                                        <h3>📈 Projeção de Fluxo de Caixa - Mensal</h3>
+                                        <div style="display: flex; gap: 8px; align-items: center;">
+                                            <label style="font-size: 12px; font-weight: 600; color: var(--gray-600);">Período:</label>
+                                            <select class="form-select" id="fluxoPeriodo" style="width: 110px; height: 32px; font-size: 12px; padding: 4px 8px;">
+                                                <option value="3">3 Meses</option>
+                                                <option value="6" selected>6 Meses</option>
+                                                <option value="12">12 Meses</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="chart-body">
+                                        <div class="chart-canvas-wrapper" style="height: 300px;">
+                                            <canvas id="chartFluxoCaixa" width="400" height="280"></canvas>
+                                        </div>
+                                        <div class="chart-legend">
+                                            <div class="chart-legend-item"><div class="chart-legend-color" style="background: #0d9488;"></div><span>Receita Bruta</span></div>
+                                            <div class="chart-legend-item"><div class="chart-legend-color" style="background: #ef4444;"></div><span>Despesa Total</span></div>
+                                            <div class="chart-legend-item"><div class="chart-legend-color" style="background: #f97316;"></div><span>Perda de Contratos</span></div>
+                                            <div class="chart-legend-item"><div class="chart-legend-color" style="background: #8b5cf6;"></div><span>Resultado Líquido</span></div>
+                                            <div class="chart-legend-item"><div class="chart-legend-color" style="background: #0ea5e9;"></div><span>Saldo Acumulado</span></div>
+                                            <div class="chart-legend-item"><div class="chart-legend-color" style="background: #f59e0b; border: 2px dashed #f59e0b;"></div><span>Meta Saldo Mínimo</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="fluxoTabelaContainer"></div>
+                                <div id="fluxoAlertasContainer" style="margin-top: 20px;"></div>
+                                <div id="fluxoObitoContainer" style="margin-top: 20px;"></div>
+                                <div id="fluxoPrevisibilidadeContainer" style="margin-top: 20px;"></div>
+                            </div>
+
+                            <div id="fluxoVisaoSemanal" style="display: none;">
+                                <div id="fluxoSemanalContainer"></div>
+                            </div>
+
+<div id="fluxoVisaoDiaria" style="display: none;">
+    <div id="fluxoDiarioContainer"></div>
+</div>
+
+                            <div class="card" id="cardSimulacaoPerda" style="margin-top: 20px; margin-bottom: 0;">
+                                <div class="card-header" style="background: var(--warning-light);">
+                                    <span class="card-title">📉 Simular Perda de Contratos</span>
+                                    <div style="display: flex; gap: 8px;">
+                                        <button class="btn btn-sm btn-primary" id="btnSimularPerda" style="height: 32px;">📊 Simular</button>
+                                        <button class="btn btn-sm btn-secondary" id="btnLimparSimulacaoPerda" style="height: 32px;">🔄 Limpar</button>
+                                        <button class="btn btn-sm btn-secondary" id="btnSelecionarTodosPerda" style="height: 32px;">☑️ Todos</button>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div style="margin-bottom: 12px; font-size: 13px; color: var(--gray-600);">
+                                        Selecione os assistidos para simular o impacto da perda de contratos:
+                                    </div>
+                                    <div id="simulacaoListaAssistidos" style="max-height: 200px; overflow-y: auto; border: 1px solid var(--gray-200); border-radius: 8px; padding: 8px; background: var(--white);">
+                                        <div class="empty-state" style="padding: 12px;">Carregando assistidos...</div>
+                                    </div>
+                                    <div id="simulacaoResultado" style="margin-top: 16px; display: none;">
+                                        <div class="card" style="margin-bottom: 0; border-left: 4px solid var(--warning);">
+                                            <div class="card-body" id="simulacaoResultadoConteudo"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ============================================= -->
+                <!-- PÁGINA: INTELIGÊNCIA DE NEGÓCIO                -->
+                <!-- ============================================= -->
+                <div class="page" id="page-simulacao-cenarios">
+                    <div class="card">
+                        <div class="card-header" style="background: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%); color: white;">
+                            <span class="card-title" style="color: white;">🧠 Inteligência de Negócio</span>
+                            <div class="top-bar-actions" style="display: flex; gap: 8px; flex-wrap: wrap;">
+                                <button class="btn btn-sm btn-secondary" id="btnAtualizarInteligencia" style="height: 32px;">🔄 Atualizar</button>
+                                <button class="btn btn-sm btn-secondary" id="btnConfigurarParametrosOp" style="height: 32px;">⚙️ Parâmetros</button>
+                            </div>
+                        </div>
+                        <div class="card-body" style="padding: 16px;">
+                            <div class="comercial-tabs" style="margin-bottom: 20px;">
+                                <button class="comercial-tab active" data-tab-inteligencia="painel">🎯 Painel de Margem</button>
+                                <button class="comercial-tab" data-tab-inteligencia="equilibrio">⚖️ Ponto de Equilíbrio</button>
+                                <button class="comercial-tab" data-tab-inteligencia="simulador">🧪 Simulador de Contrato</button>
+                                <button class="comercial-tab" data-tab-inteligencia="projecao">📈 Projeção de Cenários</button>
+                                <button class="comercial-tab" data-tab-inteligencia="risco">🚨 Análise de Risco</button>
+                            </div>
+
+                            <div id="inteligenciaTabPainel">
+                                <div id="painelMargemContainer">
+                                    <div class="empty-state">Carregando painel de margem...</div>
+                                </div>
+                            </div>
+                            <div id="inteligenciaTabEquilibrio" style="display: none;">
+                                <div id="pontoEquilibrioContainer">
+                                    <div class="empty-state">Carregando ponto de equilíbrio...</div>
+                                </div>
+                            </div>
+                            <div id="inteligenciaTabSimulador" style="display: none;">
+                                <div id="simuladorContratoContainer">
+                                    <div class="empty-state">Carregando simulador...</div>
+                                </div>
+                            </div>
+                            <div id="inteligenciaTabProjecao" style="display: none;">
+                                <div id="projecaoCenariosContainer">
+                                    <div class="empty-state">Carregando projeção de cenários...</div>
+                                </div>
+                            </div>
+                            <div id="inteligenciaTabRisco" style="display: none;">
+                                <div id="analiseRiscoContainer">
+                                    <div class="empty-state">Carregando análise de risco...</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div><!-- /content-area -->
+        </div><!-- /main-area -->
+    </div><!-- /app-shell -->
+
+    <!-- ============================================= -->
+    <!-- OVERLAYS E MODAIS                             -->
+    <!-- ============================================= -->
+
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="spinner-large"></div>
+        <p id="loadingText">Processando...</p>
+    </div>
+
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- MODAL PADRÃO -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal">
+            <div class="modal-header">
+                <span class="modal-title" id="modalTitle"></span>
+                <button class="modal-close" id="modalCloseBtn">×</button>
+            </div>
+            <div class="modal-body" id="modalBody"></div>
+            <div class="modal-footer" id="modalFooter"></div>
+        </div>
+    </div>
+
+    <!-- MODAL DE CONFIGURAÇÃO DE METAS -->
+    <div class="modal-overlay" id="modalConfigurarMetas">
+        <div class="modal">
+            <div class="modal-header">
+                <span class="modal-title">⚙️ Configurar Metas e Parâmetros</span>
+                <button class="modal-close" onclick="managerApp.fecharModalMetas()">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>🎯 Meta de Faturamento (R$)</label>
+                    <input type="text" class="form-input input-currency" id="modalMetaFaturamento" placeholder="Ex: 50000">
+                </div>
+                <div class="form-group">
+                    <label>📊 Meta de Margem Líquida (%)</label>
+                    <input type="number" class="form-input" id="modalMetaMargem" step="1" placeholder="Ex: 25">
+                </div>
+                <div class="form-group">
+                    <label>⭐ Meta de Novos Leads (quantidade por mês)</label>
+                    <input type="number" class="form-input" id="modalMetaLeads" step="1" placeholder="Ex: 30">
+                </div>
+                <div class="form-group">
+                    <label>📈 Meta de Taxa de Conversão (%)</label>
+                    <input type="number" class="form-input" id="modalMetaConversao" step="1" placeholder="Ex: 20">
+                </div>
+                <div class="form-group">
+                    <label>📅 Dias para Alerta de Contrato</label>
+                    <input type="number" class="form-input" id="modalMetaDiasAlerta" min="1" max="60" step="1" placeholder="Ex: 15">
+                </div>
+                <hr style="margin: 16px 0; border-color: var(--gray-200);">
+                <div style="font-size: 13px; font-weight: 700; color: var(--gray-700); margin-bottom: 12px;">📊 PARÂMETROS DE PREVISIBILIDADE</div>
+                <div class="form-group">
+                    <label>📉 Churn Médio (contratos perdidos por mês)</label>
+                    <input type="number" class="form-input" id="modalMetaChurn" step="0.1" placeholder="Ex: 0.33">
+                    <small class="field-hint">Média de contratos que você perde por mês</small>
+                </div>
+                <div class="form-group">
+                    <label>💰 Ticket Médio (novos contratos via Lead)</label>
+                    <input type="text" class="form-input input-currency" id="modalMetaTicketMedio" placeholder="Ex: 5000">
+                    <small class="field-hint">Valor médio de um novo contrato gerado por Lead</small>
+                </div>
+                <div class="alert-info" style="background: var(--info-light); padding: 12px; border-radius: 8px; margin-top: 12px; font-size: 12px;">
+                    💡 <strong>Como calcular o Churn:</strong> Some os contratos perdidos nos últimos 3 meses e divida por 3.<br>
+                    💡 <strong>Como calcular o Ticket Médio:</strong> Some o valor dos últimos contratos fechados via Lead e divida pela quantidade.
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="managerApp.fecharModalMetas()">Cancelar</button>
+                <button class="btn btn-primary" id="btnSalvarMetas">Salvar Metas</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL DE ANIVERSARIANTES -->
+    <div class="modal-overlay" id="modalAniversariantes">
+        <div class="modal">
+            <div class="modal-header" style="background: linear-gradient(135deg, #f59e0b 0%, #f97316 100%); border-radius: 24px 24px 0 0;">
+                <span class="modal-title" style="color: white;">🎉 Aniversariantes do Dia!</span>
+                <button class="modal-close" id="fecharModalAniversariantesBtn" style="background: rgba(255,255,255,0.2); color: white; border: none;">×</button>
+            </div>
+            <div class="modal-body" id="conteudoAniversariantes" style="padding: 24px;">
+                <div style="text-align: center; padding: 20px;">
+                    <div class="spinner-small" style="margin: 0 auto 10px;"></div>
+                    <p style="color: var(--gray-500);">Carregando aniversariantes...</p>
+                </div>
+            </div>
+            <div class="modal-footer" style="justify-content: center; border-radius: 0 0 24px 24px;">
+                <button class="btn btn-secondary" id="fecharModalAniversariantesBtnFooter" style="width: 100%;">Fechar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL DE ALERTAS DE CONTRATOS -->
+    <div class="modal-overlay" id="modalAlertasContratos">
+        <div class="modal">
+            <div class="modal-header" id="modalAlertasHeader" style="border-radius: 24px 24px 0 0;">
+                <span class="modal-title" id="modalAlertasTitulo">⚠️ Contratos em Atenção</span>
+                <button class="modal-close" id="fecharModalAlertasBtn" style="background: rgba(0,0,0,0.1); border: none;">×</button>
+            </div>
+            <div class="modal-body" id="conteudoAlertasContratos" style="padding: 24px;">
+                <div style="text-align: center; padding: 20px;">
+                    <div class="spinner-small" style="margin: 0 auto 10px;"></div>
+                    <p style="color: var(--gray-500);">Carregando alertas...</p>
+                </div>
+            </div>
+            <div class="modal-footer" style="border-radius: 0 0 24px 24px;">
+                <button class="btn btn-secondary" id="fecharModalAlertasBtnFooter">Fechar</button>
+                <button class="btn btn-primary" id="btnVerTodosContratos">📋 Ver Todos</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL DE SUGESTÃO DE ABORDAGEM -->
+    <div class="modal-overlay" id="modalSugestaoAbordagem">
+        <div class="modal" style="max-width: 640px;">
+            <div class="modal-header" style="background: linear-gradient(135deg, #0d9488 0%, #0f766e 100%); border-radius: 24px 24px 0 0;">
+                <span class="modal-title" style="color: white;">💬 Sugestão de Abordagem</span>
+                <button class="modal-close" id="fecharModalSugestaoBtn" style="background: rgba(255,255,255,0.2); color: white; border: none;">×</button>
+            </div>
+            <div class="modal-body" id="conteudoSugestaoAbordagem" style="padding: 24px;"></div>
+            <div class="modal-footer" style="border-radius: 0 0 24px 24px; display: flex; gap: 12px; flex-wrap: wrap;">
+                <button class="btn btn-secondary" id="fecharModalSugestaoBtnFooter">Fechar</button>
+                <button class="btn btn-whatsapp" id="btnAbrirWhatsAppSugestao">📱 Abrir WhatsApp</button>
+                <button class="btn btn-primary" id="btnCopiarTextoSugestao">📋 Copiar Texto</button>
+                <button class="btn btn-success" id="btnConfirmarMudancaSugestao">✅ Confirmar Mudança</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL DE VISUALIZAÇÃO DA IMAGEM DO PERSONAL CARE -->
+    <div class="modal-overlay" id="modalVisualizarImagemPersonal">
+        <div class="modal" style="max-width: 420px;">
+            <div class="modal-header" style="background: linear-gradient(135deg, #0d9488 0%, #0f766e 100%); border-radius: 24px 24px 0 0;">
+                <span class="modal-title" style="color: white;">🖼️ Cartão do Personal Care</span>
+                <button class="modal-close" id="fecharModalImagemPersonal" style="background: rgba(255,255,255,0.2); color: white; border: none;">×</button>
+            </div>
+            <div class="modal-body" style="padding: 20px; text-align: center;">
+                <div style="background: #f3f4f6; border-radius: 12px; padding: 12px; display: inline-block;">
+                    <img id="imagemPersonalPreview" src="" alt="Cartão Personal Care" style="max-width: 100%; border-radius: 8px; display: block;">
+                </div>
+                <div style="margin-top: 12px; display: flex; gap: 8px; width: 100%;">
+                    <button class="btn btn-whatsapp btn-sm" id="btnEnviarImagemPersonal" style="flex: 1; text-align: center; justify-content: center;">📱 Enviar</button>
+                    <button class="btn btn-secondary btn-sm" id="btnCopiarImagemPersonal" style="flex: 1; text-align: center; justify-content: center;">📋 Copiar</button>
+                    <button class="btn btn-secondary btn-sm" id="btnBaixarImagemPersonal" style="flex: 1; text-align: center; justify-content: center;">💾 Baixar</button>
+                    <button class="btn btn-secondary btn-sm" onclick="document.getElementById('modalVisualizarImagemPersonal').style.display='none'" style="flex: 1; text-align: center; justify-content: center;">Fechar</button>
+                </div>
+                <div id="statusCopiarImagemPersonal" style="margin-top: 8px; font-size: 12px; color: var(--gray-500);"></div>
+            </div>
+            <div class="modal-footer" style="justify-content: center; border-radius: 0 0 24px 24px; padding: 8px 20px 12px 20px;">
+                <div style="font-size: 11px; color: var(--gray-400); text-align: center;">
+                    💡 Clique em "Copiar" para copiar a imagem, ou "Enviar" para compartilhar via WhatsApp
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CARTÃO DE ANIVERSÁRIO -->
+    <div id="cartaoAniversarioContainer" style="position: fixed; left: -9999px; top: 0; z-index: -1; width: 360px; background: linear-gradient(135deg, #f59e0b 0%, #f97316 100%); border-radius: 16px; padding: 24px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); font-family: 'Inter', sans-serif;">
+        <div style="text-align: center; background: white; border-radius: 12px; padding: 24px 20px;">
+            <div style="margin-bottom: 12px;">
+                <img src="https://i.ibb.co/HLR2m0Bz/JARDINSCare-Logo-Fundo-Transparente.png" alt="JARDINSCare" style="height: 40px; width: auto;">
+            </div>
+            <div style="font-size: 11px; color: #f59e0b; font-weight: 600; letter-spacing: 1.5px; margin-bottom: 6px;">🌟 FELIZ ANIVERSÁRIO! 🌟</div>
+            <div style="width: 60px; height: 2px; background: linear-gradient(90deg, #f59e0b, #f97316); margin: 0 auto 12px auto; border-radius: 2px;"></div>
+            <div style="font-size: 22px; font-weight: 800; color: #1f2937; margin-bottom: 2px; line-height: 1.2;" id="cartaoNome">Nome</div>
+            <div style="font-size: 14px; color: #f59e0b; font-weight: 600; margin-bottom: 12px;" id="cartaoIdade">🎂 0 anos 🎂</div>
+            <div style="font-size: 12px; color: #4b5563; line-height: 1.6; max-width: 320px; margin: 0 auto 12px auto; text-align: center; min-height: 80px;" id="cartaoMensagem">
+                Hoje é um dia muito especial!<br>
+                Que a alegria, saúde e paz estejam<br>
+                presentes em cada momento do seu dia.
+            </div>
+            <div style="width: 40px; height: 1px; background: #e5e7eb; margin: 0 auto 12px auto;"></div>
+            <div style="font-size: 11px; color: #9ca3af; font-weight: 500;">
+                Com todo carinho,<br>
+                <span style="color: #0d9488; font-weight: 700; font-size: 12px;">Equipe JARDINSCare</span>
+            </div>
+            <div style="margin-top: 12px; font-size: 9px; color: #d1d5db; border-top: 1px solid #f3f4f6; padding-top: 10px;">
+                🌿 Cuidando de quem você ama 🌿
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL DE VISUALIZAÇÃO DO CARTÃO -->
+    <div class="modal-overlay" id="modalVisualizarCartao">
+        <div class="modal" style="max-width: 420px;">
+            <div class="modal-header" style="background: linear-gradient(135deg, #f59e0b 0%, #f97316 100%); border-radius: 24px 24px 0 0;">
+                <span class="modal-title" style="color: white;">🎨 Cartão de Aniversário</span>
+                <button class="modal-close" id="fecharModalCartaoBtn" style="background: rgba(255,255,255,0.2); color: white; border: none;">×</button>
+            </div>
+            <div class="modal-body" id="conteudoVisualizarCartao" style="padding: 20px; text-align: center;">
+                <div id="cartaoImagemContainer" style="background: #f3f4f6; border-radius: 12px; padding: 12px; display: inline-block;">
+                    <img id="cartaoImagemPreview" src="" alt="Cartão de Aniversário" style="max-width: 100%; border-radius: 8px; display: block;">
+                </div>
+                <div style="margin-top: 12px; display: flex; gap: 8px; justify-content: center; flex-wrap: nowrap; width: 100%;">
+                    <button class="btn btn-whatsapp btn-sm" id="btnCopiarImagemCartao" style="flex: 1 1 25%; min-width: 0; background: #3b82f6; white-space: nowrap; padding: 6px 4px; font-size: 12px;">📋 Copiar</button>
+                    <button class="btn btn-whatsapp btn-sm" id="btnBaixarImagemCartao" style="flex: 1 1 25%; min-width: 0; white-space: nowrap; padding: 6px 4px; font-size: 12px;">💾 Baixar</button>
+                    <button class="btn btn-whatsapp btn-sm" id="btnAbrirWhatsAppCartao" style="flex: 1 1 25%; min-width: 0; white-space: nowrap; padding: 6px 4px; font-size: 12px;">📱 WhatsApp</button>
+                    <button class="btn btn-secondary btn-sm" onclick="document.getElementById('modalVisualizarCartao').style.display='none';" style="flex: 1 1 25%; min-width: 0; white-space: nowrap; padding: 6px 4px; font-size: 12px;">Fechar</button>
+                </div>
+                <div id="cartaoCopiarStatus" style="margin-top: 8px; font-size: 12px; color: var(--gray-500);"></div>
+            </div>
+            <div class="modal-footer" style="justify-content: center; border-radius: 0 0 24px 24px; padding: 12px 20px;">
+                <div style="font-size: 11px; color: var(--gray-400); text-align: center;">
+                    💡 Clique em "Copiar" para copiar a imagem e colar no WhatsApp
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL DE PARÂMETROS OPERACIONAIS -->
+    <div class="modal-overlay" id="modalParametrosOperacionais">
+        <div class="modal">
+            <div class="modal-header">
+                <span class="modal-title">⚙️ Parâmetros Operacionais</span>
+                <button class="modal-close" id="fecharModalParametrosOp">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>💰 Despesas Operacionais Mensais (R$)</label>
+                    <input type="text" class="form-input input-currency" id="paramDespesasOp" placeholder="Ex: 20000">
+                    <small class="field-hint">Aluguel, contador, marketing, internet, pró-labore, etc.</small>
+                </div>
+                <div class="form-group">
+                    <label>📊 Alíquota de Imposto (%)</label>
+                    <input type="number" class="form-input" id="paramAliquotaImposto" step="0.1" placeholder="Ex: 6">
+                    <small class="field-hint">Simples Nacional, MEI, etc.</small>
+                </div>
+                <div class="form-group">
+                    <label>🎯 CAC Médio por Novo Contrato (R$)</label>
+                    <input type="text" class="form-input input-currency" id="paramCacMedio" placeholder="Ex: 500">
+                    <small class="field-hint">Custo de marketing + comercial por novo cliente</small>
+                </div>
+                <div class="form-group">
+                    <label>📅 Meses para Amortizar o CAC</label>
+                    <input type="number" class="form-input" id="paramMesesAmortizacaoCac" min="1" max="36" placeholder="Ex: 12">
+                    <small class="field-hint">Tempo médio de contrato</small>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="cancelarParametrosOp">Cancelar</button>
+                <button class="btn btn-primary" id="salvarParametrosOp">Salvar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================= -->
+    <!-- JAVASCRIPT - MÓDULOS ORGANIZADOS              -->
+    <!-- ============================================= -->
+    <script src="js/config.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/utilsFinance.js"></script>
+    <script src="js/supabase-api.js"></script>
+    <script src="js/supabase-realtime.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/charts.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script src="js/assistidos.js"></script>
+    <script src="js/leads.js"></script>
+    <script src="js/metricas-comerciais.js"></script>
+    <script src="js/despesas.js"></script>
+    <script src="js/receitas.js"></script>
+    <script src="js/resultados.js"></script>
+    <script src="js/fluxo-caixa.js"></script>
+    <script src="js/modals.js"></script>
+    <script src="js/aniversariantes.js"></script>
+    <script src="js/inteligencia-negocio.js"></script>
+    
+    <!-- ============================================= -->
+    <!-- SERVICE WORKER REGISTRO                      -->
+    <!-- ============================================= -->
+<script>
+    if ('serviceWorker' in navigator) {
+        if (window.location.protocol !== 'file:') {
+            navigator.serviceWorker.register('/service-worker.js', { updateViaCache: 'none' })
+                .then(function(registro) {
+                    console.log('✅ Service Worker registrado com sucesso:', registro);
+
+                    // 🆕 v2 — Força verificação de atualização
+                    registro.update();
+
+                    // 🆕 v2 — Detecta quando uma nova versão está pronta e recarrega
+                    registro.addEventListener('updatefound', function() {
+                        var newWorker = registro.installing;
+                        if (newWorker) {
+                            newWorker.addEventListener('statechange', function() {
+                                if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                                    console.log('🆕 Nova versão instalada! Recarregue a página para aplicar.');
+                                }
+                            });
+                        }
+                    });
+
+                    // 🆕 v2 — Detecta troca de controlador (nova versão assumiu)
+                    var refreshing = false;
+                    navigator.serviceWorker.addEventListener('controllerchange', function() {
+                        if (refreshing) return;
+                        refreshing = true;
+                        console.log('🔄 Nova versão assumiu o controle. Recarregando...');
+                        window.location.reload();
+                    });
+                })
+                .catch(function(erro) {
+                    console.log('❌ Falha ao registrar Service Worker:', erro);
+                });
+        } else {
+            console.log('ℹ️ Service Worker não registrado - ambiente file:// detectado');
+        }
+    }
+</script>
+
+</body>
+</html>

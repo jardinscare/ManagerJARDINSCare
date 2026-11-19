@@ -1,0 +1,51 @@
+# =============================================
+# NETLIFY CONFIG — managerJARDINSCare PWA
+# Versão 1 — 11/11/2026
+# =============================================
+# Objetivo: evitar que o CDN do Netlify sirva uma versão
+# antiga do service-worker.js ou do index.html após um deploy.
+# =============================================
+
+# 🔒 Service Worker — NUNCA cachear (precisa ser sempre o mais novo)
+[[headers]]
+  for = "/service-worker.js"
+  [headers.values]
+    Cache-Control = "no-cache, no-store, must-revalidate"
+    Pragma = "no-cache"
+    Expires = "0"
+
+# 🔒 HTML principal — revalidar sempre
+[[headers]]
+  for = "/index.html"
+  [headers.values]
+    Cache-Control = "no-cache, must-revalidate"
+
+# 🔒 Raiz do site — revalidar sempre
+[[headers]]
+  for = "/"
+  [headers.values]
+    Cache-Control = "no-cache, must-revalidate"
+
+# 🔒 Manifest — revalidar sempre (para refletir mudança de version)
+[[headers]]
+  for = "/manifest.json"
+  [headers.values]
+    Cache-Control = "no-cache, must-revalidate"
+
+# 📦 JS, CSS e ícones — cache longo (podem ser cacheados com segurança,
+# pois o CACHE_NAME do service-worker já controla invalidação)
+[[headers]]
+  for = "/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/icons/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+	
