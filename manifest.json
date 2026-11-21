@@ -1,7 +1,7 @@
 {
     "name": "Manager JARDINSCare",
     "short_name": "Manager JARDINSCare",
-    "version": "2.1",
+    "version": "2.2",
     "description": "Gestão Estratégica de Assistidos e Leads - Manager JARDINSCare",
     "start_url": ".",
     "display": "standalone",
